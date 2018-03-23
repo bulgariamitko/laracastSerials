@@ -1,5 +1,8 @@
 <?php
 
+// login a user
+// Auth::loginUsingId(1);
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,7 @@
 |
 */
 
+// lessson 1 - forms
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,4 +37,11 @@ Route::post('posts', function(\App\Http\Requests\PublishPostForm $form) {
 	return 'Success';
 });
 
+// lesson 2 - purchases
 Route::get('purchases', 'PurchasesController@store');
+
+// lesson 3 - registering a user
+Route::get('users', 'UsersController@store');
+
+// lesson 7 - policy's
+Route::get('teams/{team_id}/members', 'TeamMembersController@store');
