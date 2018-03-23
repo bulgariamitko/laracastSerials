@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Forms\PublishPostForm;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +15,15 @@
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('posts', function() {
+	// simple way
+	// $this->validate($request, ['title' => 'required']);
+	// Post::create();
+
+	// PublishPostForm - object
+	$form = new PublishPostForm;
+	$form->save();
+	return 'Success';
 });
