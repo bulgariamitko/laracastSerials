@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Forms\PublishPostForm;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,13 +15,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('posts', function() {
-	// simple way
-	// $this->validate($request, ['title' => 'required']);
-	// Post::create();
+// 1 way
+// Route::post('posts', function(Request $request) {
+// 	$this->validate($request, ['body' => 'required']);
+// 	Post::create($request->all());
+// });
 
-	// PublishPostForm - object
-	$form = new PublishPostForm;
-	$form->save();
+// 2 way
+// Route::post('posts', function(\App\Http\Forms\PublishPostForm $form) {
+// 	$form->save();
+// 	return 'Success';
+// });
+
+// 3 way
+Route::post('posts', function(\App\Http\Requests\PublishPostForm $form) {
+	$form->persist();
 	return 'Success';
 });
+
+Route::get('purchases', 'PurchasesController@store');
