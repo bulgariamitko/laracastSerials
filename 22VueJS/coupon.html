@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.css">
+	<style type="text/css">
+		body {
+			padding-top: 40px;
+		}
+	</style>
+</head>
+<body>
+<div id="root" class="container">
+	<coupon></coupon>
+	<h1 v-if="couponApplied">You used a coupon</h1>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+<script src="vue/coupon.js"></script>
+</body>
+</html>
